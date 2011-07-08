@@ -2,6 +2,7 @@ package ru.RssReader;
 
 import android.app.Activity;
 import android.app.ListActivity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -89,12 +90,17 @@ public class RssReaderActivity extends ListActivity
         super.onCreate (savedInstanceState);
         setContentView (R.layout.main);
 
+        ProgressDialog progDialog = new ProgressDialog (this);
+        progDialog.setMessage ("Please wait for few seconds...");
+        progDialog.setTitle ("Yet another rss reader");
+
         Loader loader = new Loader ();
         try {
+            progDialog.show ();
             ArrayList <Entry> entryList = loader.load (rssFeed);
 
-//            ListView lw = (ListView) findViewById (R.id.RssList);
             setListAdapter (new RssAdapter (entryList, this));
+            progDialog.dismiss ();
        } catch (Exception e) {
             e.printStackTrace ();
 
