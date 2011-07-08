@@ -1,13 +1,13 @@
 package ru.RssReader;
 
-import java.util.Date;
-
 /**
  * Created by IntelliJ IDEA.
  * User: Denis Smolyar aka Rastafarra
  * Date: 7/7/11
  * Time: 4:06 PM
  */
+
+import java.util.Date;
 
 public class Entry {
     private String title;
