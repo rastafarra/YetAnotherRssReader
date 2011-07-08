@@ -31,6 +31,6 @@ public class Loader {
 
 
     private ArrayList <Entry> parse (InputStream stream) {
-
+        return null;
     }
 }
