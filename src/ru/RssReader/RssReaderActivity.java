@@ -51,21 +51,22 @@ public class RssReaderActivity extends ListActivity
         }
 
         public View getView (int i, View view, ViewGroup viewGroup) {
-            if (null == view) {
-                View v = LayoutInflater.from (context).inflate (R.layout.entry, null);
-                TextView title = (TextView) v.findViewById (R.id.title);
-                TextView description = (TextView) v.findViewById (R.id.description);
-                TextView pubDate = (TextView) v.findViewById (R.id.pubDate);
+            View v = view;
 
-                Entry entry = (Entry) getItem (i);
+            if (null == v)
+                v = LayoutInflater.from (context).inflate (R.layout.entry, null);
 
-                title.setText (fromHtml (entry.getTitle ()));
-                description.setText (fromHtml (entry.getDescription ()));
-                pubDate.setText (fromHtml (entry.getPubDate ()));
+            TextView title = (TextView) v.findViewById (R.id.title);
+            TextView description = (TextView) v.findViewById (R.id.description);
+            TextView pubDate = (TextView) v.findViewById (R.id.pubDate);
 
-                return v;
-            }
-            else return view;
+            Entry entry = (Entry) getItem (i);
+
+            title.setText (fromHtml (entry.getTitle ()));
+            description.setText (fromHtml (entry.getDescription ()));
+            pubDate.setText (fromHtml (entry.getPubDate ()));
+
+            return v;
         }
     }
 
